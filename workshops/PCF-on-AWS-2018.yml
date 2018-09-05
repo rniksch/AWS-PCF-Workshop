@@ -1,0 +1,14 @@
+---
+id: PCF-on-AWS-2018
+name: Workshop
+workshop_title: "Pivotal Cloud Foundry on AWS 2018"
+revision: nsiAugust2018
+logo: "aws-smile.png"
+enable_issue_submission: false
+repo_url: https://github.com/rniksch/AWS-PCF-Workshop
+vars:
+  WORKSHOP_VERSION: v1.0
+modules:
+  activate:
+  - "modules_getting-started_readme"
+  - "modules_artifactory_readme"

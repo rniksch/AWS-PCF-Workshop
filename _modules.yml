@@ -1,0 +1,5 @@
+modules:
+  modules_getting-started_readme:
+    name: Getting Started
+  modules_artifactory_readme:
+    name: Artifactory    

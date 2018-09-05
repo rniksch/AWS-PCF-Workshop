@@ -1,0 +1,15 @@
+= PCF-on-AWS-Workshop
+Workshop for the exploration of Pivotal Cloud Foundry on AWS.
+
+=== This workshop will preprovition the PCF cluster, Service broker, Cloud9 developement environment and AWS IAM resources before the event.
+
+Should you wish to run this workshop at a later stage in your own enviroment please see the Lab-Setup module for how to build out and configure the LAB and related resources.
+
+=== Workshop outcomes:
+- Explore ways to accelerate PCF deployment on AWS.
+- Install and configuration of the AWS servcie broker into PCF.
+- Deploy sample application workload on PCF running on AWS.
+- Provision and expose AWS resources via the Service broker.
+
+=== Presentation content:
+All presentations and discussion content can be found in the Resources section of this workshop.

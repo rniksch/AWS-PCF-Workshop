@@ -41,7 +41,7 @@ Login to the Ops manager:
 http://opsman.pcfdomain
 ----
 
-image::opsman.pdf[Ops Manager]
+image::opsman.png[Ops Manager]
 
 == Create IAM roles and DDB table  for the AWS Service Broker: 
 
@@ -51,8 +51,8 @@ The broker can use a role if the broker is installed into an EC2 instance with a
 Alternatively, an IAM user and static keypair can be created for the broker to use. 
 
 
-===Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name
-===it something else you will also need to update this policy to reflect the name.
+=== Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name
+=== it something else you will also need to update this policy to reflect the name.
 
 ----
 The IAM user/role requires the following

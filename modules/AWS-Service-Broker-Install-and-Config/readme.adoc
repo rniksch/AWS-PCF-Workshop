@@ -38,7 +38,7 @@ You can monitor this deployement via the AWS CloudFormation Console.
 Step 6::
 Login to the Ops manager:
 ----
-http://opsman.pcfdomain
+https://opsman.pcf.cloudfoundry.awsworkshop.io/
 ----
 
 image::opsman.pdf[Ops Manager]
@@ -143,20 +143,42 @@ AttributeName=userid,KeyType=RANGE --global-secondary-indexes \
 --region us-east-1 --table-name awssb
 ----
 
-Step 9:: Download and install AWS Service Broker:
 
+Step 9:: Download the AWS Service Broker Tile:
 ----
-Download the AWS Service Broker Tile
-Login to Ops Manager and import the tile
-Complete configuration in the AWS Service Broker Configuration section. 
+wget https://awsservicebrokeralpha.s3.amazonaws.com/pcf/aws-service-broker-latest.pivotal
+----
+
+
+Step 10:: Login to Ops Manager and import the tile:
+----
+https://opsman.pcf.cloudfoundry.awsworkshop.io/
+Click on import product on the top left.
+browse to the downloaded Service Broker tile.
+The new tile install will appear on the left.
+Click on the + symbol to install the tile.
+----
+image::SBinstall01.png[Service Broker Install]
+image::SBinstall02.png[Service Broker Install]
+image::SBinstall03.png[Service Broker Install]
+
+Step 10:: Complete configuration in the AWS Service Broker Configuration section. 
+----
+Select the service broker tile.
+Select Service Broker Configuration.
+----
+
+image::SBconf01.png[Service Broker config]
+
+
 Take note of the following fields:
 AWS Access Key ID and AWS Secret Access ‑ if you are using an ec2 instance role attached to the broker hosts, specify "use‑role" as the value for both fields, otherwise specify the credentials for the user.
 
 AWS Region ‑ this is the default region for the broker to deploy services into, and must match the region that the
 DynamoDB table created above  (this will be decoupled in an upcoming update).
 
+----
 AWS CloudFormation Role ARN ‑ specify the ARN for the CloudFormation Role created above.
-
 Amazon S3 Bucket ‑ specify awsservicebrokeralpha
 Amazon S3 Key Prefix ‑ specify pcf/templates/
 Amazon S3 Region ‑ specify us-west-2

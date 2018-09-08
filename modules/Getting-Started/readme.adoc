@@ -33,6 +33,6 @@ sudo yum install cf-cli
 
 Step 6:: Login to the PCF Cluster using the cf CLI:
 ----
-cf login -a https://api.sys.cloudfoundry.awsworkshop.io -u admin --skip-ssl-validation
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u admin --skip-ssl-validation
 ----
 

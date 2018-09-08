@@ -41,7 +41,7 @@ Login to the Ops manager:
 http://opsman.pcfdomain
 ----
 
-image::opsman.png[Ops Manager]
+image::/images/opsman.png[Ops Manager]
 
 == Create IAM roles and DDB table  for the AWS Service Broker: 
 

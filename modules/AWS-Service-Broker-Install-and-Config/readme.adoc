@@ -41,7 +41,7 @@ Login to the Ops manager:
 https://opsman.pcf.cloudfoundry.awsworkshop.io/
 ----
 
-image::/images/opsman.pdf[Ops Manager]
+image::/images/opsman.png[Ops Manager]
 
 == Create IAM roles and DDB table  for the AWS Service Broker: 
 
@@ -160,7 +160,8 @@ Click on the + symbol to install the tile.
 ----
 image::/images/SBinstall01.png[Service Broker Install]
 image::/images/SBinstall02.png[Service Broker Install]
-image::/imagesSBinstall03.png[Service Broker Install]
+image::/images/SBinstall03.png[Service Broker Install]
+image::/images/SBinstall01.gif[Service Broker Install]
 
 Step 10:: Complete configuration in the AWS Service Broker Configuration section. 
 ----

@@ -4,7 +4,7 @@ var express = require('express');
 var app = express();
 
 app.get('/', function(req, res){
-  if (process.env.VCAP_SERVICES == undefined) {
+  if (process.env.VCAP_SERVICES == '{}') {
     res.send("couldn't find a binding for the Polly service");
   } else {
     var serviceBindings = JSON.parse(process.env.VCAP_SERVICES)['polly'][0]['credentials'];

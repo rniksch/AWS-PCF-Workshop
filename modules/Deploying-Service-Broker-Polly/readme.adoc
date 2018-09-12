@@ -1,20 +1,79 @@
-= Deploying applications:
+= Deploying Sample application for AWS Polly:
+
+Goals:
+Deploy nodejs based sample application.
+Provision AWS Polly Service via the Service Broker.
+Bind the Service to the Application.
+
+Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk, and build entirely new categories of speech-enabled products. Amazon Polly is a Text-to-Speech service that uses advanced deep learning technologies to synthesize speech that sounds like a human voice.
+
+https://aws.amazon.com/polly/ [https://aws.amazon.com/polly/]
+
+Step 1:: Login to apps manager using the cf CLI
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
+----
+
+Step 2:: Create a Space using the cf cli:
+----
+cf create-space polly
+----
+
+Step 3:: Login to new space:
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
+Select space polly
+----
+
+Step 4:: View AWS Service Broker Services:
+----
+cf marketplace
+----
+
+Step 5:: Deploy the AWS Polly Service via the AWS Service Broker:
+----
+cf create-service polly default Student<YOUR Sudent Number>-polly
+----
+
+This will take some time to provision, while that is taking place we can deploy a nodejs based application to consume the AWS service.
+
+Step 6:: Deploy Polly sample application on PCF.
+----
+cd ~/environment/AWS-PCF-Workshop/modules/Deploying-Service-Broker-Polly
+cf push
+----
+
+Connecting to the URL of the pushed Application will fail, the application is told to connect to AWS S3 but at this stage there is no binding between the S3 service we have created and the Application.
+
+Step 7:: Create Binding between the application and the Service Broker Service:
+----
+cf bind-service polly-sample Student<YOUR Sudent Number>-polly
+----
+
+Step 8:: restart application 
+----
+cf restage polly-sample
+----
+
+Step 9::
+----
+test the application URL again
+----
+
+You should now see a black screen with a audio play option.
+
+It is important to note that at no point did the developer have to wait for a cloud or ops team to deploy the AWS service and provide connection details such as endpoint, or credentials. At no point was the deleveloper required to leave the developer interface and switch context to an AWS web console. No indepth understanding of the service was required.
 
 
-Step 1:: Deploy Nodejs sample application on PCF.
-
-
-
-Step 2:: Deploy sample nodejs application.
-
-
-Step 3:: Provision service through AWS Service Broker.
-
-
-Step 4:: Create Binding
-
-
-
+In this Module:
+- listed the AWS servcie Broker Services.
+- Deployed the AWS Polly Service.
+- Deployed a sample application.
+- Created a binding between the application and the service.
 
 
 

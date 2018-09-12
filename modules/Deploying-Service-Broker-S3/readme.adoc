@@ -1,17 +1,87 @@
-= Deploying applications:
+= Deploying Sample application for AWS S3:
+
+Goals:
+Deploy nodejs based sample application.
+Provision AWS Simple Storgae Service via the Service Broker.
+Bind the Service to the Application.
+
+Companies today need the ability to simply and securely collect, store, and analyze their data at a massive scale. Amazon S3 is object storage built to store and retrieve any amount of data from anywhere – web sites and mobile apps, corporate applications, and data from IoT sensors or devices. It is designed to deliver 99.999999999% durability, and stores data for millions of applications used by market leaders in every industry. S3 provides comprehensive security and compliance capabilities that meet even the most stringent regulatory requirements. It gives customers flexibility in the way they manage data for cost optimization, access control, and compliance. S3 provides query-in-place functionality, allowing you to run powerful analytics directly on your data at rest in S3. And Amazon S3 is the most supported cloud storage service available, with integration from the largest community of third-party solutions, systems integrator partners, and other AWS services.
+
+https://aws.amazon.com/s3/ [https://aws.amazon.com/s3/]
+
+Step 1:: Login to apps manager using the cf CLI
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
+----
+
+Step 2:: Create a Space using the cf cli:
+----
+cf create-space s3
+----
+
+Step 3:: Login to new space:
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
+Select space s3
+----
+
+Step 4:: View AWS Service Broker Services:
+----
+cf marketplace
+----
+
+Step 5:: Deploy the AWS Simple Storage Service via the AWS Service Broker:
+----
+cf create-service s3 production Student<YOUR Sudent Number>-s3
+----
+
+This will take some time to provision, while that is taking place we can deploy a nodejs based application to consume the AWS service.
+
+Step 6:: Deploy S3 sample application on PCF.
+----
+cd ~/environment/AWS-PCF-Workshop/modules/Deploying-Service-Broker-S3
+cf push
+----
+
+Connecting to the URL of the pushed Application will fail, the application is told to connect to AWS S3 but at this stage there is no binding between the S3 service we have created and the Application.
+
+Step 7:: Create Binding between the application and the Service Broker Service:
+----
+cf bind-service S3-sample Student<YOUR Sudent Number>-polly
+----
+
+Step 8:: restart application 
+----
+cf restage S3-sample
+----
+
+Step 9::
+----
+test the application URL again
+----
+
+You should see a confirmation of a file written to S3.
+----
+payload written to s3://cfnservicebroker-s3-7b1874ac-2f7c-4ef6-9-s3bucket-1ocf2sbdbgapy/hi-there.txt
+----
+
+It is important to note that at no point did the developer have to wait for a cloud or ops team to deploy the AWS service and provide connection details such as endpoint, or credentials. At no point was the deleveloper required to leave the developer interface and switch context to an AWS web console. No indepth understanding of the service was required.
+
+In this Module:
+- listed the AWS servcie Broker Services.
+- Deployed the AWS S3 Service.
+- Deployed a sample application.
+- Created a binding between the application and the service.
 
 
-Step 1:: Deploy Nodejs sample application on PCF.
 
 
 
-Step 2:: Deploy sample nodejs application.
 
-
-Step 3:: Provision service through AWS Service Broker.
-
-
-Step 4:: Create Binding
 
 
 

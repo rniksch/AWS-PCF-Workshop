@@ -1,58 +1,16 @@
-= Getting Started with this Workshop
+= Installing and Configuring the AWS Service Broker.
 
-This workshop is run on the AWS Quick Start for Pivotal Cloud Foundry:
-https://aws-quickstart.s3.amazonaws.com/quickstart-pivotal-cloudfoundry/doc/pivotal-cloud-foundry-on-the-aws-cloud.pdf[pivotal cloud foundry on the AWS cloud]
+Goals:
+Explore the install and configure process for the AWS Service Broker.
 
-The deployment guide discusses creating the required Route53 hosted zone and records, Amazon certificate manager certificates and creating a Pivotal network account.
-The guide then discussed launching the quick start CloudFOrmation stack.
+Step 1:: Explore IAM user and role policies
 
-For the workshop the starter solution is used and scaled out post deployment.
-
-=== Please note:
-This stack can take hours to provision it is recommended to export logs to cloudwatch and set the stack to not roll back on failure under the advanced settings.
-This will allow for easier investigation should anything with the stack launch fail.
-
-== Deploy PCF Quick Start:
-
-Step 1:: Create AWS Route 53 Hosted Zone.
-
-Step 2:: Create AWS Certyificate manager certificates as per deployment document.
-
-Step 3:: Create Pivotal Network account.
-----
-Create a Pivnet account at https://network.pivotal.io/.
-----
-
-Step 4:: Collect pivnet token:
-----
-Log in to your Pivnet account from a web browser.
-Click your name in the upper-right corner.
-Choose Edit Profile.
-You’ll find your API token at the bottom of this page.
-Please use the LEGACY API TOKEN
-----
-
-Step 5:: go to dinner or a movie this will take a while...
-You can monitor this deployement via the AWS CloudFormation Console.
-
-Step 6::
-Login to the Ops manager:
-----
-https://opsman.pcf.cloudfoundry.awsworkshop.io/
-----
-
-image::/images/opsman.png[Ops Manager]
-
-== Create IAM roles and DDB table  for the AWS Service Broker: 
-
-Step 7:: Create Users and Roles:
 The AWS Service Broker packages all services into CloudFormation templates that are executed by the broker.
 The broker can use a role if the broker is installed into an EC2 instance with access to the ec2 metadata endpoint (169.254.169.254).
 Alternatively, an IAM user and static keypair can be created for the broker to use. 
 
-
-===Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name
-===it something else you will also need to update this policy to reflect the name.
+Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name
+it something else you will also need to update this policy to reflect the name.
 
 ----
 The IAM user/role requires the following
@@ -128,7 +86,7 @@ CloudFormation Role
 
 ----
 
-Step 8:: Create DynamoDB Table.
+Step 2:: Explore DynamoDB Table.
 
 The broker uses a DynamoDB table as a persistent store for service instances and as a distributed cache/lock. 
 To create the table the following command can be run using the AWS CLI:
@@ -144,13 +102,15 @@ AttributeName=userid,KeyType=RANGE --global-secondary-indexes \
 ----
 
 
-Step 9:: Download the AWS Service Broker Tile:
+Step 3:: Download the AWS Service Broker Tile:
+*This has been completed as part of the LAB Setup, we will exlpore the process, should you be running this on your own you can complete all the steps in the Lab-Setup Module*
 ----
 wget https://awsservicebrokeralpha.s3.amazonaws.com/pcf/aws-service-broker-latest.pivotal
 ----
 
 
-Step 10:: Login to Ops Manager and import the tile:
+Step 4:: Login to Ops Manager and import the tile:
+*This has been completed as part of the LAB Setup, we will exlpore the process, should you be running this on your own you can complete all the steps in the Lab-Setup Module*
 ----
 https://opsman.pcf.cloudfoundry.awsworkshop.io/
 Click on import product on the top left.
@@ -164,6 +124,7 @@ image::/images/SBinstall03.png[Service Broker Install]
 image::/images/SBinstall01.gif[Service Broker Install]
 
 Step 10:: Complete configuration in the AWS Service Broker Configuration section. 
+*This has been completed as part of the LAB Setup, we will exlpore the process, should you be running this on your own you can complete all the steps in the Lab-Setup Module*
 ----
 Select the service broker tile.
 Select Service Broker Configuration.
@@ -186,6 +147,19 @@ Amazon S3 Region ‑ specify us-west-2
 Amazon S3 Key Suffix ‑ specify -main.yaml
 Amazon DynamoDB table name ‑ specify awssb
 ----
+
+Step 11:: apply changes
+*This has been completed as part of the LAB Setup, we will exlpore the process, should you be running this on your own you can complete all the steps in the Lab-Setup Module*
+
+
+== In this module:
+- We have discussed the requirements for the AWS Service Broker.
+- downloaded the Service Broker time.
+- Looked at the process to import the tile into the ops manager.
+- Configured the AWS Service Broker.
+
+
+
 
 
 

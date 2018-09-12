@@ -1,7 +1,7 @@
 = PCF-on-AWS-Workshop
 Workshop for the exploration of Pivotal Cloud Foundry on AWS.
 
-=== This workshop will preprovition the PCF cluster, Service broker, Cloud9 developement environment and AWS IAM resources before the event.
+=== This workshop will pre provision the PCF foundation, Service broker, Cloud9 developement environment and AWS IAM resources before the event.
 
 Should you wish to run this workshop at a later stage in your own enviroment please see the Lab-Setup module for how to build out and configure the LAB and related resources.
 

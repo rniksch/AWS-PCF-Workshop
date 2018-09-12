@@ -1,5 +1,12 @@
 modules:
-  modules_getting-started_readme:
-    name: Getting Started
-  modules_artifactory_readme:
-    name: Artifactory    
+  modules_AWS-Service-Broker-Install-and-Config_readme:
+    name: AWS Service Broker Install and Config
+  modules_Getting-Started_readme:
+    name: Getting Started  
+  modules_Deploying-Service-Broker-Polly_readme:
+    name: Deploying Service Broker Polly
+  modules_Deploying-Service-Broker-S3_readme:
+    name: Deploying Service Broker S3 
+  modules_Deploying-Via-Apps-Manager-Console_readme:
+    name: Deploying via Apps Manager console   
+   

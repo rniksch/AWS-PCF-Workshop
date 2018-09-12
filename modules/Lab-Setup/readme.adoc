@@ -1,12 +1,12 @@
 =  Workshop Lab Setup:
 
+
 This workshop is run on the AWS Quick Start for Pivotal Cloud Foundry:
 https://aws-quickstart.s3.amazonaws.com/quickstart-pivotal-cloudfoundry/doc/pivotal-cloud-foundry-on-the-aws-cloud.pdf[pivotal cloud foundry on the AWS cloud]
 
 The deployment guide discusses creating the required Route53 hosted zone and records, Amazon certificate manager certificates and creating a Pivotal network account.
 The guide then discussed launching the quick start CloudFOrmation stack.
 
-For the workshop the starter solution is used and scaled out post deployment.
 
 === Please note:
 This stack can take hours to provision it is recommended to export logs to cloudwatch and set the stack to not roll back on failure under the advanced settings.
@@ -38,7 +38,8 @@ You can monitor this deployement via the AWS CloudFormation Console.
 Step 6::
 Login to the Ops manager:
 ----
-http://opsman.pcfdomain
+http://opsman.<PCF DOMAIN>
+Apply changes.
 ----
 
 image::/images/opsman.png[Ops Manager]
@@ -51,8 +52,7 @@ The broker can use a role if the broker is installed into an EC2 instance with a
 Alternatively, an IAM user and static keypair can be created for the broker to use. 
 
 
-=== Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name
-=== it something else you will also need to update this policy to reflect the name.
+ Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name it something else you will also need to update this policy to reflect the name.
 
 ----
 The IAM user/role requires the following
@@ -143,12 +143,26 @@ AttributeName=userid,KeyType=RANGE --global-secondary-indexes \
 --region us-east-1 --table-name awssb
 ----
 
-Step 9:: Download and install AWS Service Broker:
-
+Step 9:: Download the AWS Service Broker tile:
 ----
-Download the AWS Service Broker Tile
-Login to Ops Manager and import the tile
-Complete configuration in the AWS Service Broker Configuration section. 
+wget https://awsservicebrokeralpha.s3.amazonaws.com/pcf/aws-service-broker-latest.pivotal
+----
+
+Step 10:: Login to Ops Manager and import the tile.
+----
+https://opsman.<PCF DOMAIN>/
+Click on import product on the top left.
+Browse to the downloaded Service Broker tile.
+The new tile install will appear on the left.
+Click in the + symbol to install the tile.
+----
+
+Step 11:: Complete configuration in the AWS Service Broker Configuration section. 
+----
+Select the AWS Service Broker Tile, at this stage it should be orange.
+Select the Settings Tab.
+----
+
 Take note of the following fields:
 AWS Access Key ID and AWS Secret Access ‑ if you are using an ec2 instance role attached to the broker hosts, specify "use‑role" as the value for both fields, otherwise specify the credentials for the user.
 
@@ -162,7 +176,66 @@ Amazon S3 Key Prefix ‑ specify pcf/templates/
 Amazon S3 Region ‑ specify us-west-2
 Amazon S3 Key Suffix ‑ specify -main.yaml
 Amazon DynamoDB table name ‑ specify awssb
+
 ----
+Apply changes
+----
+
+Step 12:: Clone Lab repo:
+----
+Go to to the AWS Cloud9 developer env
+cd ~/environment
+git clone https://github.com/rniksch/AWS-PCF-Workshop.git
+----
+
+Step 13:: add the cf CLI repo:
+----
+sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo
+----
+
+Step 14:: Install cf CLI:
+----
+sudo yum install cf-cli
+----
+
+Step 15:: Login to the PCF Foundation using the cf CLI:
+----
+collect appman login details
+go to opsman
+select cred 
+scroll down to uaa
+Admin Credentials   Link to Credential
+copy the password
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u admin --skip-ssl-validation
+using admin and password collected form previous step
+Select the system org
+Select the system space
+----
+
+Step 14:: Create users for attendee access Apps manager, orgs and spaces.
+----
+cd ~/environment
+git clone https://github.com/rniksch/AWS-PCF-Workshop.git
+cd ~/environment/AWS-PCF-Workshop/Lab-Setup
+./account-setup
+----
+
+
+Step 15:: Clean up:
+----
+rm -rfv ~/environment/AWS-PCF-Workshop
+----
+
+== Lab Setup Complete
+
+
+
+
+
+
+
+
+
 
 
 

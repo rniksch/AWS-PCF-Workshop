@@ -1,0 +1,85 @@
+= Deploying Sample application for AWS Polly via the Apps Manager Console:
+
+Goals:
+Deploy nodejs based sample application.
+Provision AWS Polly Service via the Service Broker.
+Bind the Service to the Application.
+
+Amazon Polly is a service that turns text into lifelike speech, allowing you to create applications that talk, and build entirely new categories of speech-enabled products. Amazon Polly is a Text-to-Speech service that uses advanced deep learning technologies to synthesize speech that sounds like a human voice.
+
+https://aws.amazon.com/polly/ [https://aws.amazon.com/polly/]
+
+Step 1:: Login to apps manager.
+----
+https://apps.sys.pcf.cloudfoundry.awsworkshop.io/
+User = Student<YOUR STUDENT NUMBER>
+Password = Passw0rd
+----
+
+Step 2:: Select the Student<YOUR STUDENT NUMBER> Org:
+----
+On the left scroll down and select the Student<YOUR STUDENT NUMBER> org.
+----
+
+Step 3:: Create a new space:
+----
+On the right side of the screen.
+Click on create space.
+Enter pollyGUI
+----
+
+Step 4:: Select the space.
+----
+Click on the pollyGUI space in the list of spaces.
+----
+
+Step 5:: Deploy the AWS polly service.
+----
+Select services.
+Click on add service.
+In the list of services scroll down and select Amazon Polly.
+Select the standard plan.
+Click Select plan.
+Provide instance name pollyGUI.
+Click Create.
+----
+
+Step 6:: Deploy a sample aplication via the cf cli:
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
+Select space pollyGUI
+cd ~/environment/AWS-PCF-Workshop/modules/Deploying-Via-Apps-Manager-Console
+cf push
+----
+
+Step 7:: Create binding via the apps manager console:
+----
+Select the Service tab.
+Click on the Amazon polly service.
+On the right, click on bind service.
+Select the pollyGUI application from the list.
+Click Bind
+----
+
+Step 8:: restart the application:
+----
+Select the pollyGUI Space on the left.
+Select the apps tab.
+Click on the pollyGUI app in the list.
+Click on the restart application icon at the top of the screen.
+Click restart
+Select the route tab.
+Click on the URL.
+----
+
+In this Module:
+- listed the AWS servcie Broker Services.
+- Deployed the AWS Polly Service.
+- Deployed a sample application.
+- Created a binding between the application and the service.
+
+
+
+

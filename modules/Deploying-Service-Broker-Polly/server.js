@@ -15,7 +15,7 @@ app.get('/', function(req, res){
     });
     var params = {
       OutputFormat: 'mp3',
-      Text: 'Hello World!',
+      Text: 'Welcome to Spring one!',
       VoiceId: 'Brian',
     };
     polly.synthesizeSpeech(params, function(err, data) {

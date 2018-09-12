@@ -1,38 +1,54 @@
 = Getting Started with this Workshop
 
+
+Goals:
+Connect to AWS CLoud 9 Develeopment IDE.
+Install the CF CLI
+Log into the Pivotal CLoud Foundry Application Manager.
+
 Step 1:: Connecting to you AWS Cloud 9 developement environment:
 
 AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects. Since your Cloud9 IDE is cloud-based, you can work on your projects from your office, home, or anywhere using an internet-connected machine. Cloud9 also provides a seamless experience for developing serverless applications enabling you to easily define resources, debug, and switch between local and remote execution of serverless applications. With Cloud9, you can quickly share your development environment with your team, enabling you to pair program and track each other's inputs in real time.
 
 https://aws.amazon.com/cloud9/ [https://aws.amazon.com/cloud9/]
 
-We will use this for SSH access to EC2 hosts running on AWS and access to the AWS Web Console.
 
-
-
-Step 2:: Create local lab folder:
+Step 2:: Clone Lab repo:
 ----
-mkdir PCFWorkshop
+cd ~/environment
+git clone https://github.com/rniksch/AWS-PCF-Workshop.git
 ----
 
-Step 3:: Clone Lab repo:
-----
-git clone git@github.com:rniksch/AWS-PCF-Workshop.git
-----
-
-
-Step 4:: add the cf CLI repo:
+Step 3:: add the cf CLI repo:
 ----
 sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo
 ----
 
-Step 5:: Install cf CLI:
+Step 4:: Install cf CLI:
 ----
 sudo yum install cf-cli
 ----
 
-Step 6:: Login to the PCF Cluster using the cf CLI:
+Step 5:: Login to the PCF Foundation using the cf CLI:
 ----
-cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u admin --skip-ssl-validation
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+Select org Student<YOUR STUDENT NUMBER>
 ----
+
+Orgs and Spaces are using in various ways. Customers we have engagded with use orgs as a means of project or team segration. Spaces are also used for either project or environment segragation.
+
+e.g:
+org = team, space = project
+org = team1, space = frontend
+org = team1, space = midtier
+
+org = project, space = env
+org = frontend, space = dev
+org = frontend, space = prod
+
+In this module you:
+- installed the cf cli
+- used the cf cli to connect to the Pivotal Cloud Foundry apps manager
+
 

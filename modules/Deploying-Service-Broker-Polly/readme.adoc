@@ -61,7 +61,7 @@ cf restage polly-sample
 
 Step 9:: Test the application URL again
 
-image::/images/DeployPollyService720 [Deploy polly]
+image::/images/DeployPollyService720.gif[Deploy polly]
 
 You should now see a black screen with a audio play option.
 

@@ -10,5 +10,8 @@ vars:
   WORKSHOP_VERSION: v1.0
 modules:
   activate:
-  - "modules_getting-started_readme"
-  - "modules_artifactory_readme"
+  - "modules_Getting-Started_readme"
+  - "modules_AWS-Service-Broker-Install-and-Config_readme"
+  - "modules_Deploying-Service-Broker-Polly_readme"
+  - "modules_Deploying-Service-Broker-S3_readme"
+  - "modules_Deploying-Via-Apps-Manager-Console_readme"

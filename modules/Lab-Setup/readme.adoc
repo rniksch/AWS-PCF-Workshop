@@ -1,5 +1,7 @@
 =  Workshop Lab Setup:
 
+:imagesdir: ../../images
+
 == Workshop Lab Setup:
 
 This workshop is run on the AWS Quick Start for Pivotal Cloud Foundry:

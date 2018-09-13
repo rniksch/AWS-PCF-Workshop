@@ -1,6 +1,6 @@
 =  Workshop Lab Setup:
 
-:imagesdir: ../../images
+:imagesdir: /images
 
 == Workshop Lab Setup:
 
@@ -45,7 +45,7 @@ http://opsman.<PCF DOMAIN>
 Apply changes.
 ----
 
-image::/images/opsman.png[Ops Manager]
+image::opsman.png[Ops Manager]
 
 == Create IAM roles and DDB table  for the AWS Service Broker: 
 

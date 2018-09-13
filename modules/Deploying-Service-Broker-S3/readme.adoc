@@ -1,5 +1,7 @@
 = Deploying Sample application for AWS S3:
 
+:imagesdir: /images
+
 == Deploying Sample application for AWS S3:
 
 == Goals:

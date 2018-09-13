@@ -1,5 +1,7 @@
 = Installing and Configuring the AWS Service Broker.
 
+:imagesdir: /images
+
 == Installing and Configuring the AWS Service Broker.
 
 == Goals:
@@ -120,10 +122,8 @@ browse to the downloaded Service Broker tile.
 The new tile install will appear on the left.
 Click on the + symbol to install the tile.
 ----
-image::/images/SBinstall01.png[Service Broker Install]
-image::/images/SBinstall02.png[Service Broker Install]
-image::/images/SBinstall03.png[Service Broker Install]
-image::/images/SBinstall01.gif[Service Broker Install]
+
+image::SBinstall01.gif[Service Broker Install]
 
 Step 10:: Complete configuration in the AWS Service Broker Configuration section. 
 *This has been completed as part of the LAB Setup, we will exlpore the process, should you be running this on your own you can complete all the steps in the Lab-Setup Module*
@@ -132,7 +132,7 @@ Select the service broker tile.
 Select Service Broker Configuration.
 ----
 
-image::/images/SBconf01.png[Service Broker config]
+image::SBconf01.png[Service Broker config]
 
 
 Take note of the following fields:

@@ -1,5 +1,7 @@
 = Deploying Sample application for AWS Polly via the Apps Manager Console:
 
+:imagesdir: /images
+
 == Deploying Sample application for AWS Polly via the Apps Manager Console:
 
 

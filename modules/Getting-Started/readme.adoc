@@ -1,5 +1,7 @@
 = Getting Started with this Workshop
 
+:imagesdir: /images
+
 == Getting Started with this Workshop
 
 == Goals:

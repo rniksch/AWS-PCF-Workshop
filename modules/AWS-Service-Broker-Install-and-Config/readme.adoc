@@ -1,6 +1,8 @@
 = Installing and Configuring the AWS Service Broker.
 
-Goals:
+== Installing and Configuring the AWS Service Broker.
+
+== Goals:
 Explore the install and configure process for the AWS Service Broker.
 
 Step 1:: Explore IAM user and role policies

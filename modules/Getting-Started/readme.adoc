@@ -1,7 +1,8 @@
 = Getting Started with this Workshop
 
+== Getting Started with this Workshop
 
-Goals:
+== Goals:
 Connect to AWS CLoud 9 Develeopment IDE.
 Install the CF CLI
 Log into the Pivotal CLoud Foundry Application Manager.

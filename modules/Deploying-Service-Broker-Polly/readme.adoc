@@ -1,6 +1,8 @@
 = Deploying Sample application for AWS Polly:
 
-Goals:
+== Deploying Sample application for AWS Polly:
+
+== Goals:
 Deploy nodejs based sample application.
 Provision AWS Polly Service via the Service Broker.
 Bind the Service to the Application.

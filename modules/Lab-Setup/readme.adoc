@@ -1,5 +1,6 @@
 =  Workshop Lab Setup:
 
+== Workshop Lab Setup:
 
 This workshop is run on the AWS Quick Start for Pivotal Cloud Foundry:
 https://aws-quickstart.s3.amazonaws.com/quickstart-pivotal-cloudfoundry/doc/pivotal-cloud-foundry-on-the-aws-cloud.pdf[pivotal cloud foundry on the AWS cloud]

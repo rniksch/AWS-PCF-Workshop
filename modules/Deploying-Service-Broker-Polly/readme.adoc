@@ -1,6 +1,6 @@
 = Deploying Sample application for AWS Polly:
 
-:imagesdir: ../../images
+:imagesdir: /images
 
 == Deploying Sample application for AWS Polly:
 
@@ -66,6 +66,7 @@ cf restage polly-sample
 Step 9:: Test the application URL again
 
 image::/images/DeployPollyService720.gif[Deploy polly]
+image::DeployPollyService720.gif[Deploy polly]
 
 You should now see a black screen with a audio play option.
 

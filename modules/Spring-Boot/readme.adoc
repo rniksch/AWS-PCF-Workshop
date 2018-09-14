@@ -1,0 +1,72 @@
+=  Spring Boot:
+
+:imagesdir: /images
+
+== Spring Boot:
+
+what is Spring boot?
+
+Spring Boot offers a fast way to build applications. It looks at your classpath and at beans you have configured, makes reasonable assumptions about what you’re missing, and adds it. With Spring Boot you can focus more on business features and less on infrastructure.
+
+
+
+
+
+
+https://spring.io/guides/gs/spring-boot/#initial
+https://dzone.com/articles/getting-started-with-amazon-sqs 
+https://aws.amazon.com/blogs/developer/using-amazon-sqs-with-spring-boot-and-spring-jms/
+
+
+== Getting started with Spring Boot 
+
+Step 0::
+----
+cd ~/environment/AWS-PCF-Workshop/modules/Spring-Boot
+----
+
+Step 1:: Download Spring boot
+----
+git clone git@github.com:spring-guides/gs-spring-boot.git
+----
+
+Step 1:: Download Sping Cloud for AWS:
+----
+git clone git@github.com:spring-cloud/spring-cloud-aws.git
+----
+Step 2:: Start base application.
+----
+----
+
+Step 3:: Add modules for AWS Services.
+----
+----
+
+Step 4:: Add environment parameters for integration with AWS Service Broker.
+----
+----
+
+Step 5:: Deploy AWS SQS Queue using the service broker
+----
+----
+
+Step 6:: deploy application to PCF
+----
+----
+
+Step 7:: bind app to service broker
+----
+----
+
+
+
+
+
+
+
+
+
+
+
+
+

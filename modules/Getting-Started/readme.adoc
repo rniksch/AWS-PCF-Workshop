@@ -36,8 +36,10 @@ Step 5:: Login to the PCF Foundation using the cf CLI:
 ----
 cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
 (Password = Passw0rd)
-Select org Student<YOUR STUDENT NUMBER>
 ----
+
+Each student has been given OrgManager access to the Org matching the student name.
+You will note that when you login, the Org is already selected.
 
 Orgs and Spaces are using in various ways. Customers we have engagded with use orgs as a means of project or team segration. Spaces are also used for either project or environment segragation.
 

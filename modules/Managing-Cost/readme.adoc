@@ -1,0 +1,13 @@
+= Managing Costs:
+
+:imagesdir: /images
+
+== Managing Costs:
+
+== Goals:
+Reserved instances
+Spot instances
+Right sizing
+Cost explorer
+Cloud Watch Alerts 
+Trusted Advisor

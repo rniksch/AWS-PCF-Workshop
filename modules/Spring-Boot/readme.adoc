@@ -6,29 +6,45 @@
 
 what is Spring boot?
 
-Spring Boot offers a fast way to build applications. It looks at your classpath and at beans you have configured, makes reasonable assumptions about what you’re missing, and adds it. With Spring Boot you can focus more on business features and less on infrastructure.
+Spring Boot offers a fast way to build applications. It looks at your classpath and at beans you have configured, makes reasonable assumptions about what you’re missing, and adds it. With Spring Boot you can focus more on business features and less on infrastructure. Spring does not write your code for you.
 
 
-
-
-
-
-https://spring.io/guides/gs/spring-boot/#initial
-https://dzone.com/articles/getting-started-with-amazon-sqs 
-https://aws.amazon.com/blogs/developer/using-amazon-sqs-with-spring-boot-and-spring-jms/
-
+== Goals:
+Take a starter Spring application extend on this by adding  functions for AWS services using the Spring-boot-AWS.
+Further extend on the application by allowing for AWS Service broker and PCF integration.
 
 == Getting started with Spring Boot 
 
-Step 0::
+Step 0:: 
 ----
 cd ~/environment/AWS-PCF-Workshop/modules/Spring-Boot
 ----
 
-Step 1:: Download Spring boot
+For a Step by step journey through starting your first Sping application visit https://spring.io/guides/gs/spring-boot/#initial [https://spring.io/guides/gs/spring-boot/#initial]. This will guide you through either a Maven or Gradle build. exploring building a basic application as well as adding in health checking.
+Should you wish to skip the first steps and jump right in, you will find folders for both initial and complete hello world applications. The samples include gradle and maven.
+
+We have included a starting sample application build using Spring boot. Lets Modernize this...
+
+== Spring + AWS + Pivotal Cloud Foundry:
+
+Step 0:: 
 ----
-git clone git@github.com:spring-guides/gs-spring-boot.git
+cd ~/environment/AWS-PCF-Workshop/modules/Spring-Boot
 ----
+
+Step 1:: Download Spring boot getting started.
+----
+
+----
+
+
+
+
+
+
+
+
+
 
 Step 1:: Download Sping Cloud for AWS:
 ----
@@ -57,6 +73,12 @@ Step 6:: deploy application to PCF
 Step 7:: bind app to service broker
 ----
 ----
+
+
+== Resources:
+https://spring.io/guides/gs/spring-boot/#initial
+https://dzone.com/articles/getting-started-with-amazon-sqs 
+https://aws.amazon.com/blogs/developer/using-amazon-sqs-with-spring-boot-and-spring-jms/
 
 
 

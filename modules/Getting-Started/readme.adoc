@@ -11,7 +11,8 @@ Log into the Pivotal CLoud Foundry Application Manager.
 
 Step 1:: Connecting to your developement environment:
 
-For this Workshop we have provisioned an Eclipse dev environment.
+For this Workshop we have provisioned an Eclipse dev environment. The environments are numbered 001 to 100
+So if you are student 001 you will make use of workspace attendee-001.
 
 ----
 http://workspace.cloudfoundry.awsworkshop.io//dashboard/#/ide/che/attendee-00<STUDENT NUMBER>

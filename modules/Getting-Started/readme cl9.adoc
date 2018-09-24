@@ -5,18 +5,16 @@
 == Getting Started with this Workshop
 
 == Goals:
-Connect to Develeopment IDE.
+Connect to AWS CLoud 9 Develeopment IDE.
 Install the CF CLI
 Log into the Pivotal CLoud Foundry Application Manager.
 
-Step 1:: Connecting to your developement environment:
+Step 1:: Connecting to you AWS Cloud 9 developement environment:
 
-For this Workshop we have provisioned an Eclipse dev environment.
+AWS Cloud9 is a cloud-based integrated development environment (IDE) that lets you write, run, and debug your code with just a browser. It includes a code editor, debugger, and terminal. Cloud9 comes prepackaged with essential tools for popular programming languages, including JavaScript, Python, PHP, and more, so you don’t need to install files or configure your development machine to start new projects. Since your Cloud9 IDE is cloud-based, you can work on your projects from your office, home, or anywhere using an internet-connected machine. Cloud9 also provides a seamless experience for developing serverless applications enabling you to easily define resources, debug, and switch between local and remote execution of serverless applications. With Cloud9, you can quickly share your development environment with your team, enabling you to pair program and track each other's inputs in real time.
 
-----
-http://workspace.cloudfoundry.awsworkshop.io//dashboard/#/ide/che/attendee-00<STUDENT NUMBER>
-mkdir environment
-----
+https://aws.amazon.com/cloud9/ [https://aws.amazon.com/cloud9/]
+
 
 Step 2:: Clone Lab repo:
 ----

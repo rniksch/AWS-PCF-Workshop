@@ -8,7 +8,7 @@ This workshop is run on the AWS Quick Start for Pivotal Cloud Foundry:
 https://aws-quickstart.s3.amazonaws.com/quickstart-pivotal-cloudfoundry/doc/pivotal-cloud-foundry-on-the-aws-cloud.pdf[pivotal cloud foundry on the AWS cloud]
 
 The deployment guide discusses creating the required Route53 hosted zone and records, Amazon certificate manager certificates and creating a Pivotal network account.
-The guide then discussed launching the quick start CloudFOrmation stack.
+The guide then discussed launching the quick start CloudFormation stack.
 
 
 === Please note:
@@ -19,20 +19,25 @@ This will allow for easier investigation should anything with the stack launch f
 
 Step 1:: Create AWS Route 53 Hosted Zone.
 
-Step 2:: Create AWS Certyificate manager certificates as per deployment document.
+Step 2:: Create AWS Certificate manager certificates as per deployment document.
 
 Step 3:: Create Pivotal Network account.
 ----
 Create a Pivnet account at https://network.pivotal.io/.
 ----
 
-Step 4:: Collect pivnet token:
+Step 3b:: Collect pivnet token:
 ----
 Log in to your Pivnet account from a web browser.
 Click your name in the upper-right corner.
 Choose Edit Profile.
 You’ll find your API token at the bottom of this page.
 Please use the LEGACY API TOKEN
+----
+
+Step 4:: Launch the Quick Start stack:
+----
+From the PCF / PAS quick start deployment guide launch the quick start template and provide parameter inputs.
 ----
 
 Step 5:: go to dinner or a movie this will take a while...
@@ -47,164 +52,25 @@ Apply changes.
 
 image::opsman.png[Ops Manager]
 
-== Create IAM roles and DDB table  for the AWS Service Broker: 
 
-Step 7:: Create Users and Roles:
-The AWS Service Broker packages all services into CloudFormation templates that are executed by the broker.
-The broker can use a role if the broker is installed into an EC2 instance with access to the ec2 metadata endpoint (169.254.169.254).
-Alternatively, an IAM user and static keypair can be created for the broker to use. 
-
-
- Note: the Service User/Role policy expects the CloudFormation role to be named AWSServiceBrokerCFNRole, if you name it something else you will also need to update this policy to reflect the name.
-
-----
-The IAM user/role requires the following
-
-IAM policy:
-Service User/Role
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "cloudformation:*",
-                "ssm:*",
-                "dynamodb:*",
-                "s3:*"
-            ],
-            "Resource": [
-                "*"
-            ],
-            "Effect": "Allow"
-        },
-        {
-            "Action": [
-                "iam:PassRole"
-            ],
-            "Resource": [
-                "arn:aws:iam::*:role/AWSServiceBrokerCFNRole"
-            ],
-            "Effect": "Allow"
-        }
-    ]
-}
-----
-
-A CloudFormation service role is also required, an example of a broad policy to enable all current service plans is included below, this can be scoped down if only specific services are required:
-
-CloudFormation Role
-----
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "cloudformation:*",
-                "iam:*",
-                "kms:*",
-                "ssm:*",
-                "ec2:*",
-                "lambda:*",
-                "athena:*",
-                "dynamodb:*",
-                "elasticache:*",
-                "elasticmapreduce:*",
-                "rds:*",
-                "redshift:*",
-                "route53:*",
-                "s3:*",
-                "sns:*",
-                "sqs:*",
-                "polly:*",
-                "lex:*",
-                "translate:*",
-                "rekognition:*",
-                "kinesis:*"
-            ],
-            "Resource": [
-                "*"
-            ],
-            "Effect": "Allow"
-        }
-    ]
-}
-
-----
-
-Step 8:: Create DynamoDB Table.
-
-The broker uses a DynamoDB table as a persistent store for service instances and as a distributed cache/lock. 
-To create the table the following command can be run using the AWS CLI:
-
-----
-aws dynamodb create-table --attribute-definitions \
-AttributeName=id,AttributeType=S AttributeName=userid,AttributeType=S \
-AttributeName=type,AttributeType=S --key-schema AttributeName=id,KeyType=HASH \
-AttributeName=userid,KeyType=RANGE --global-secondary-indexes \
-'IndexName=type-userid-index,KeySchema=[{AttributeName=type,KeyType=HASH},{AttributeName=userid,KeyType=RANGE}],Projection={ProjectionType=INCLUDE,NonKeyAttributes=[id,userid,type,locked]},ProvisionedThroughput={ReadCapacityUnits=5,WriteCapacityUnits=5}' \
---provisioned-throughput ReadCapacityUnits=5,WriteCapacityUnits=5 \
---region us-west-2 --table-name awssb
-----
-
-Step 9:: Download the AWS Service Broker tile:
-----
-wget https://awsservicebrokeralpha.s3.amazonaws.com/pcf/aws-service-broker-latest.pivotal
-----
-
-Step 10:: Login to Ops Manager and import the tile.
-----
-https://opsman.<PCF DOMAIN>/
-Click on import product on the top left.
-Browse to the downloaded Service Broker tile.
-The new tile install will appear on the left.
-Click in the + symbol to install the tile.
-----
-
-Step 11:: Complete configuration in the AWS Service Broker Configuration section. 
-----
-Select the AWS Service Broker Tile, at this stage it should be orange.
-Select the Settings Tab.
-----
-
-Take note of the following fields:
-AWS Access Key ID and AWS Secret Access ‑ if you are using an ec2 instance role attached to the broker hosts, specify "use‑role" as the value for both fields, otherwise specify the credentials for the user.
-
-AWS Region ‑ this is the default region for the broker to deploy services into, and must match the region that the
-DynamoDB table created above  (this will be decoupled in an upcoming update).
-
-AWS CloudFormation Role ARN ‑ specify the ARN for the CloudFormation Role created above.
-
-
-
-
-Amazon S3 Bucket ‑ specify awsservicebrokeralpha
-Amazon S3 Key Prefix ‑ specify pcf/templates/
-Amazon S3 Region ‑ specify us-west-2
-Amazon S3 Key Suffix ‑ specify -main.yaml
-Amazon DynamoDB table name ‑ specify awssb
-
-----
-Apply changes
-----
-
-Step 12:: Clone Lab repo:
+Step 7:: Clone Lab repo:
 ----
 Go to to the AWS Cloud9 developer env
 cd ~/environment
 git clone https://github.com/rniksch/AWS-PCF-Workshop.git
 ----
 
-Step 13:: add the cf CLI repo:
+Step 8:: add the cf CLI repo:
 ----
 sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo
 ----
 
-Step 14:: Install cf CLI:
+Step 9:: Install cf CLI:
 ----
 sudo yum install cf-cli
 ----
 
-Step 15:: Login to the PCF Foundation using the cf CLI:
+Step 10:: Login to the PCF Foundation using the cf CLI:
 ----
 collect appman login details
 go to opsman
@@ -218,7 +84,7 @@ Select the system org
 Select the system space
 ----
 
-Step 14:: Create users for attendee access Apps manager, orgs and spaces.
+Step 11:: Create users for attendee access Apps manager, orgs and spaces.
 ----
 cd ~/environment
 git clone https://github.com/rniksch/AWS-PCF-Workshop.git
@@ -227,7 +93,7 @@ cd ~/environment/AWS-PCF-Workshop/Lab-Setup
 ----
 
 
-Step 15:: Clean up:
+Step 12:: Clean up:
 ----
 rm -rfv ~/environment/AWS-PCF-Workshop
 ----

@@ -12,8 +12,8 @@ app.get('/', function(req, res){
     var serviceBindings = JSON.parse(process.env.VCAP_SERVICES)['s3'][0]['credentials'];
     // Create an S3 client using the id and secret in the binding
     var s3 = new AWS.S3({
-      accessKeyId: serviceBindings.S3_USER_KEY_ID,
-      secretAccessKey: serviceBindings.S3_USER_SECRET_KEY
+      accessKeyId: serviceBindings.S3_AWS_ACCESS_KEY_ID,
+      secretAccessKey: serviceBindings.S3_AWS_SECRET_ACCESS_KEY
     });
     // prepare our s3 object
     var params = {

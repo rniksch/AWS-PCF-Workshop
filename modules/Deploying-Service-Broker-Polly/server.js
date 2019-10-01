@@ -10,8 +10,8 @@ app.get('/', function(req, res){
     var serviceBindings = JSON.parse(process.env.VCAP_SERVICES)['polly'][0]['credentials'];
     var polly = new AWS.Polly({
       region: "us-west-2",
-      accessKeyId: serviceBindings.POLLY_USER_KEY_ID,
-      secretAccessKey: serviceBindings.POLLY_USER_SECRET_KEY
+      accessKeyId: serviceBindings.POLLY_AWS_ACCESS_KEY_ID,
+      secretAccessKey: serviceBindings.POLLY_AWS_SECRET_ACCESS_KEY
     });
     var params = {
       OutputFormat: 'mp3',

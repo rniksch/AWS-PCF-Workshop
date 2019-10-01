@@ -26,9 +26,7 @@ cf create-space s3
 
 Step 3:: Login to new space:
 ----
-cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
-(Password = Passw0rd)
-Select space s3
+cf target -s s3
 ----
 
 Step 4:: View AWS Service Broker Services:
@@ -53,7 +51,7 @@ Connecting to the URL of the pushed Application will fail, the application is to
 
 Step 7:: Create Binding between the application and the Service Broker Service:
 ----
-cf bind-service S3-sample Student<YOUR Sudent Number>-polly
+cf bind-service S3-sample Student<YOUR Sudent Number>-s3
 ----
 
 Step 8:: restart application 

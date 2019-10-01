@@ -26,9 +26,7 @@ cf create-space polly
 
 Step 3:: Login to new space:
 ----
-cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
-(Password = Passw0rd)
-Select space polly
+cf target -s polly
 ----
 
 Step 4:: View AWS Service Broker Services:

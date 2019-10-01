@@ -1,0 +1,118 @@
+= Getting Started with this Workshop
+
+:imagesdir: /images
+
+== Getting Started with this Workshop
+
+== Goals:
+Install the CF CLI 
+Log into the Pivotal CLoud Foundry Application Manager.
+
+==If yopu are using a windows 10 based system start here, for linux or mac users jump to step 5 
+
+
+Step 1:: Install bash on windows 10
+----
+click start menu
+click on settings
+click on update and security
+Select for developers from the left menu panel
+Under use developer features select developer mode
+----
+image::winbash1.png[Deploy polly]
+----
+click on yes
+----
+image::winbash2.png[Deploy polly]
+
+----
+Open Control Panel
+Click on Programs
+Click on Turn Windows features on or off
+Check the Windows Subsystem for Linux 
+----
+image::winbash3.png[Deploy polly]
+image::winbash4.png[Deploy polly]
+----
+Click OK
+Once the components installed on your computer, click the Restart now button to complete the task
+----
+
+
+
+Step 2:: download distro
+----
+https://aka.ms/wslusers
+download unbuntu
+----
+
+Step 3:: launch bash
+----
+run any one of the following:
+start run bash.exe
+or 
+c:\windows\system32\bash.exe
+or 
+click on the ubuntu icon on the start menu bar.
+----
+
+Step 4:: add a linux user and password
+
+image::winbash5.png[Deploy polly]
+
+
+Step 5:: Install cf client
+
+
+----
+mkdir environment
+----
+
+Step 6:: Clone Lab repo:
+----
+cd ~/environment
+git clone https://github.com/rniksch/AWS-PCF-Workshop.git
+----
+
+https://docs.cloudfoundry.org/cf-cli/install-go-cli.html#pkg-linux
+
+Step 7:: add the cf CLI:
+----
+For windows bash users:
+wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+
+sudo apt-get update
+sudo apt-get install cf-cli
+
+or
+
+sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https://packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo
+
+sudo yum install cf-cli
+----
+
+Step 8:: Login to the PCF Foundation using the cf CLI:
+----
+cf login -a https://api.sys.pcf.cloudfoundry.awsworkshop.io -u Student<YOUR STUDENT NUMBER> --skip-ssl-validation
+(Password = Passw0rd)
+----
+
+Each student has been given OrgManager access to the Org matching the student name.
+You will note that when you login, the Org is already selected.
+
+Orgs and Spaces are using in various ways. Customers we have engagded with use orgs as a means of project or team segration. Spaces are also used for either project or environment segragation.
+
+e.g:
+org = team, space = project
+org = team1, space = frontend
+org = team1, space = midtier
+
+org = project, space = env
+org = frontend, space = dev
+org = frontend, space = prod
+
+In this module you:
+- installed the cf cli
+- used the cf cli to connect to the Pivotal Cloud Foundry apps manager
+
+

@@ -2,7 +2,7 @@
   "name": "cf-nodejs",
   "version": "1.0.0",
   "dependencies": {
-    "aws-sdk": "^2.248.1",
+    "aws-sdk": "^2.814.0",
     "express": "^4.16.3",
     "jade": "^1.11.0"
   }
